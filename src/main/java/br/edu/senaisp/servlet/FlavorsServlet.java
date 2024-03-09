@@ -2,6 +2,8 @@ package br.edu.senaisp.servlet;
 
 import java.io.IOException;
 
+import br.edu.senaisp.dao.FlavorsDao;
+import br.edu.senaisp.model.Flavor;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,7 +22,16 @@ public class FlavorsServlet extends HttpServlet {
 		String description = req.getParameter("description");
 		double price = Double.parseDouble(req.getParameter("price"));
 		
-		System.out.print("Name: " +name+"\nDescription: " +description+"\nPrice: " +price);
+		Flavor F = new Flavor(name, description, price);
+		
+		FlavorsDao dao = new FlavorsDao();
+		
+		dao.insert(F);
+		
+		
+		
+		
+		System.out.print("Name: " +name+"\nDescription: " +description+"\nPrice: " +price+"\n\n");
 		
 		resp.sendRedirect("/buttonHTML/initial.html");
 		
