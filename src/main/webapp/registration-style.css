@@ -34,6 +34,7 @@ input{
     height: 2rem;
     border-radius: 5px;
     border: none;
+    font-size: 2rem;
     outline: 2px solid #191970;
 }
 
